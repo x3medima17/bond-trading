@@ -7,10 +7,14 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
+
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile 'com.github.hyperledger.iroha-java:client:4.0.0'
+
 }
 
 compileKotlin {

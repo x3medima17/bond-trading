@@ -1,0 +1,117 @@
+{
+   "blockV1":{
+     "payload":{
+        "transactions":[
+           {
+              "payload":{
+                 "reducedPayload":{
+                    "commands":[
+                       {
+                          "addPeer":{
+                             "peer":{
+                                "address":"127.0.0.1:10001",
+                                "peerKey":"bddd58404d1315e0eb27902c5d7c8eb0602c16238f005773df406bc191308929"
+                             }
+                          }
+                       },
+                       {
+                          "createRole":{
+                             "roleName":"nbc",
+                             "permissions":[
+                                "can_add_asset_qty",
+                                "can_create_account",
+                                "can_set_detail",
+                                "can_receive",
+                                "can_transfer",
+                                "can_get_blocks",
+                                "can_create_asset"
+                             ]
+                          }
+                       },
+                       {
+                          "createRole":{
+                             "roleName":"fi",
+                             "permissions":[
+                                "can_receive",
+                                "can_transfer"
+                             ]
+                          }
+                       },
+
+                       {
+                          "createDomain":{
+                             "domainId":"market",
+                             "defaultRole":"fi"
+                          }
+                       },
+                       {
+                          "createAsset":{
+                             "assetName":"usd",
+                             "domainId":"market",
+                             "precision": 2
+                          }
+                       },
+                       {
+                          "createAccount":{
+                             "accountName":"nbc",
+                             "domainId":"market",
+                             "publicKey":"313a07e6384776ed95447710d15e59148473ccfc052a681317a72a69f2a49910"
+                          }
+                       },
+                       {
+                          "createAccount":{
+                             "accountName":"sber",
+                             "domainId":"market",
+                             "publicKey":"716fe505f69f18511a1b083915aa9ff73ef36e6688199f3959750db38b8f4bfc"
+                          }
+                       },
+                       {
+                          "appendRole":{
+                             "accountId":"nbc@market",
+                             "roleName":"nbc"
+                          }
+                       },
+                       {
+                          "detachRole":{
+                             "accountId":"nbc@market",
+                             "roleName":"fi"
+                          }
+                       }
+
+                    ],
+                    "quorum":1
+                 }
+              }
+           },
+           {
+              "payload":{
+                 "reducedPayload":{
+                    "commands":[
+                        {
+                            "addAssetQuantity": {
+                                "assetId" : "usd#market",
+                                "amount": "1000"
+                            }
+                        },
+                        {
+                            "transferAsset": {
+                                "srcAccountId" : "nbc@market",
+                                "destAccountId": "sber@market",
+                                "assetId": "usd#market",
+                                "description": "",
+                                "amount": "1000"
+                            }
+                        }
+                    ],
+                    "quorum":1,
+                    "creatorAccountId" : "nbc@market"
+                 }
+              }
+           }
+        ],
+        "txNumber":1,
+        "height":"1",
+        "prevBlockHash":"0000000000000000000000000000000000000000000000000000000000000000"
+     }
+   }
+}
