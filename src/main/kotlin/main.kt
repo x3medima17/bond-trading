@@ -46,7 +46,7 @@ fun main() {
         .sign(nbcKeypair)
         .build()
 
-//    println(sendAndWait(tx))
+    println(sendAndWait(tx))
 
     val lst = listOf<jp.co.soramitsu.iroha.java.Transaction>(
         Transaction.builder(nbcId)
@@ -73,16 +73,5 @@ fun main() {
     }
 
 
-    val pendingTxs = irohaAPI
-        .query(
-            Query.builder(nbcId, 1)
-                .pendingTransactions
-                .buildSigned(nbcKeypair)
-        )
-        .transactionsResponse
-        .transactionsList
-
-
-    println(pendingTxs)
 
 }
